@@ -1,20 +1,21 @@
 const path = require("path");
 const database = require("./db/db")
 const express = require("express");
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const fs = require("fs");
 const app = express();
 
-app.use(express.static('public'));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
+    res.sendFile(path.join(__dirname, "/index.html"));
 });
 
 app.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/notes.html"));
+    res.sendFile(path.join(__dirname, "/notes.html"));
 })
 
 
@@ -48,10 +49,12 @@ app.route("/api/notes")
             if (err) {
                 return console.log(err);
             }
-            console.log("Success! Note Saved");
-        });
-        res.json(newInstance);
+            console.log("Success! Note Saved"); });
+       
+                res.json(newInstance);
     });
-    app.listen(PORT, function () {
+
+
+         app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
