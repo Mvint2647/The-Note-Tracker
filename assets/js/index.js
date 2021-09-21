@@ -1,4 +1,4 @@
-const $title = $(".title");
+const $ntitle = $(".ntitle");
 const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
 const $newInstanceBtn = $(".new-instance");
@@ -8,7 +8,7 @@ if (window.location.pathname === '/notes') {
   saveNoteBtn = document.querySelector('.save-note');
   newInstanceBtn = document.querySelector('.new-instance');
   noteList = document.querySelectorAll('.list-container .list-group');
-  Title = document.querySelector('.title');
+  ntitle = document.querySelector('.ntitle');
   noteText = document.querySelector('.note-textarea');
  
 }
@@ -46,21 +46,21 @@ const renderActiveNote = () => {
   hide(saveNoteBtn);
 
   if (activeNote.id) {
-    Title.setAttribute('readonly', true);
+    ntitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
-    Title.value = activeNote.title;
+    ntitle.value = activeNote.ntitle;
     noteText.value = activeNote.text;
   } else {
-    Title.removeAttribute('readonly');
+    ntitle.removeAttribute('readonly');
     noteText.removeAttribute('readonly');
-    Title.value = '';
+    ntitle.value = '';
     noteText.value = '';
   }
 };
 
 const handleNoteSave = () => {
   const newInstance = {
-    title: Title.value,
+    ntitle: ntitle.value,
     text: noteText.value,
   };
   saveNote(newInstance).then(() => {
@@ -82,7 +82,7 @@ const handlenewInstanceView = (e) => {
 };
 
 const handleRenderSaveBtn = () => {
-  if (!Title.value.trim() || !noteText.value.trim()) {
+  if (!ntitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
   } else {
     show(saveNoteBtn);
@@ -106,7 +106,7 @@ const renderNoteList = async (notes) => {
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
   newInstanceBtn.addEventListener('click', handlenewInstanceView);
-  Title.addEventListener('keyup', handleRenderSaveBtn);
+  ntitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
 
@@ -118,12 +118,11 @@ const getAndRenderNotes = function () {
 
 
 $noteList.on("click", ".list-group-item", handleNoteView);
-$title.on("keyup", handleRenderSaveBtn);
+$nntitle.on("keyup", handleRenderSaveBtn);
 $noteText.on("keyup", handleRenderSaveBtn);
 $newInstanceBtn.on("click", handleNewInstanceView);
-$noteList.on("click", ".delete-note", handleNoteDelete);
-$saveNoteBtn.on("click", handleNoteSave);
+$notesList.on("click", ".delete-note", handleNoteDelete);
+$savedNoteBtn.on("click", handleNoteSave);
 
 
-getAndRenderNotes();
 }
