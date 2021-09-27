@@ -1,4 +1,4 @@
-const ntitle = (".ntitle");
+const newtitle = (".newTitle");
 const savedNoteBtn = (".save-note");
 const newInstanceBtn = (".new-instance");
 const noteList = (".list-container .list-group");
@@ -30,15 +30,15 @@ const renderActiveNote = () => {
   hide (".save-note");
 
   if (activeNote.id) {
-    ntitle.value = (activeNote.ntitle);
+    newTitle.value = (activeNote.newTitle);
     noteText.value = (activeNote.text);
-    ntitle.setAttribute("readonly", true);
+    newTitle.setAttribute("readonly", true);
     noteText.setAttribute("readonly", true);
   } else {
-    ntitle.value = "";
+    newTitle.value = "";
     noteText.value = "";
     noteText.removeAttribute("readonly", false);
-    ntitle.removeAttribute("readonly",false); 
+    newTitle.removeAttribute("readonly",false); 
   }
 };
 
@@ -68,19 +68,16 @@ const renderNoteList = function (notes) {
 
   for (const i = 0; i < notes.length; i++) {
     const note = notes[i];
-
-    const $li = ("<li class='list-group-item'>").data(note);
-    const $span = ("<span>").text(note.title);
-    const $delBtn = ("<i class='fas fa-trash-alt float-right text-danger delete-note'>"
-    );
-
+    const li = ("<li class='list-group-item'>").data(note);
+    const span = ("<span>").text(note.title);
+   
     li.append(span, delBtn);
     noteListItems.push(li);
-  }
+  
 
   noteList.append(noteListItems);
-};
 
+  }
 
 
 
@@ -91,11 +88,10 @@ const getRenderNotes = function () {
 };
 
 noteList.on("click", ".list-group-item", noteView);
-ntitle.on("keyup", renderSavedBtn);
+newTitle.on("keyup", renderSavedBtn);
 noteText.on("keyup", renderSavedBtn);
 newInstanceBtn.on("click", NewInstanceView);
-notesList.on("click", ".delete-note", noteDelete);
 savedNoteBtn.on("click", noteSaved);
 
 
-getRenderNotes();
+getRenderNotes()};
