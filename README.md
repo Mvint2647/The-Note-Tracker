@@ -42,8 +42,5 @@ A demo of the application is available at: https://gentle-everglades-44862.herok
 (HTML, CSS, Js, Json, & Node.JS)
 
 ## Screenshots
-![The-Note-Tracker](/images/ss60.png)
-![The-Note-Tracker](/images/ss61.png)
-![The-Note-Tracker](/images/ss62.png)
-![The-Note-Tracker](/images/ss63.png)
-![The-Note-Tracker](/images/ss64.png)
+![The-Note-U](/images/ss60.png)
+
