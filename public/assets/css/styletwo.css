@@ -1,9 +1,22 @@
 html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #18bc9c;
+  background: linear-gradient(-45deg, #002ae4, #002ae4, #7200f5, #00755a);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .save-note {
@@ -25,6 +38,10 @@ body {
   width: 100%;
   outline: none;
   border: none;
+  border-bottom: 2px solid black;
+}
+.bg-dark{
+  background: rgba(36, 36, 36, 0)!important;
 }
 
 .navbar {
@@ -39,12 +56,15 @@ body {
   background-color: rgb(255, 255, 255);
   color: #000000;
 }
+::placeholder {
+  color:rgb(195, 196, 255);
+}
 
 .note-title {
+  text-decoration: black;
   height: 50px;
   margin-top: 13px;
   font-size: 3rem;
-  background-color: rgba(255, 255, 255, 0.762);
   padding: 50px;
   text-align: center;
   color: #000000;
@@ -55,12 +75,18 @@ body {
   color: #000000;
 }
 
+
+.list-group-item:first-child {
+color:red;
+
+}
+
 .list-container .card {
   height: calc(100vh - 70px);
   border: none;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background-color:rgba(255, 255, 255, 0.762);
+  background: rgba(36, 36, 36, 0);
   color: #000000;
 }
 
@@ -98,11 +124,15 @@ body {
 .navbar-brand {
   justify-content: center;
   text-align: center;
+  align-items: center;
   display: inline-block;
   font-size: 30px;
   line-height: inherit;
-  background-color: rgba(255, 255, 255, 0.502);
   padding: 20px 50rem 20px 48px;
 }
-  
- 
+
+a.navbar-brand {
+text-align: center;
+justify-content: center;
+align-items: center;
+}

@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "live-server": "^1.2.1",
     "uuid": "^8.3.2"
   }
 }
